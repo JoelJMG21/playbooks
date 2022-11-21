@@ -1,0 +1,9 @@
+---
+ - name: to fetch file from managed node
+   hosts: 192.168.119.138
+   become: yes
+   tasks:
+           - name : getting text file from managed node
+             ansible.builtin.fetch:
+                   src: var/log/secure
+                   dest: secure_backup
