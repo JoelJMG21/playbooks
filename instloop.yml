@@ -1,0 +1,14 @@
+---
+  - name: Installing packages using loop
+    hosts: 192.168.119.138
+    become: yes
+    vars:
+        packages:
+                  - httpd
+                  - firewalld
+    tasks:
+          - name: installing packages
+            ansible.builtin.dnf:
+                    name: "{{item}}"
+                    state: present
+            loop: "{{packages}}"
