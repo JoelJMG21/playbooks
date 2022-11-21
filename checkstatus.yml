@@ -1,0 +1,17 @@
+---
+  - name: to check available services and their status
+    hosts: 192.168.119.138
+    tasks:
+        - name: checking the services
+          service_facts:
+          register: stat
+        - debug:
+            msg: "{{stat}}"
+      #  - name: print service name
+       #   debug:
+        #    msg: "{{ item.name }}  & {{ item.state }}"
+         # loop: "{{ ansible_facts.services }}"
+        - name: saving the output to a file
+          copy:
+                 content: "{{stat}}"
+                 dest: "/home/joel/saved.txt"
