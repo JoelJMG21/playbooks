@@ -1,0 +1,24 @@
+---
+ - name: Install multiple packages
+   hosts: 192.168.119.138
+   become: yes
+   vars:
+           http: httpd
+           fire: firewalld
+           pyth: python3
+
+   tasks:
+           - name: installing httpd
+             ansible.builtin.dnf:
+                     name: "{{http}}"
+                     state: present
+
+           - name: installing firewalld
+             ansible.builtin.dnf:
+                     name: "{{fire}}"
+                     state: present
+
+           - name: installing python
+             ansible.builtin.dnf:
+                     name: "{{pyth}}"
+                     state: latest
