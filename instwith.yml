@@ -1,0 +1,10 @@
+---
+ - name: implementing with items
+   hosts: 192.168.119.138
+   become: yes
+   tasks:
+          - name: installing packages
+            ansible.builtin.dnf:
+                    name: "{{item}}"
+                    state: present
+            with_items: httpd, firewalld
