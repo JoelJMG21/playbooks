@@ -1,0 +1,13 @@
+---
+ - name: Create a user in remote node
+   hosts: 192.168.119.138
+   vars:
+    - user1: user
+   vars_files:
+    - /home/joel/secure.yml
+   tasks:
+    - name: creating user
+      user:
+        name: "{{user1}}"
+        password: "{{password}}"
+      become: yes
