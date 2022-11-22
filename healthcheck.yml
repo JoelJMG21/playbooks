@@ -1,0 +1,21 @@
+ ---
+  - name: health check of cpu memory and storage
+    hosts: 192.168.119.138
+    vars_files: /home/joel/secure.yml
+    tasks:
+     - name: healthcheck of cpu
+       shell: "mpstat"
+       register: stat
+     - name: healthcheck of memory
+       shell: "free -m"
+       register: statmem
+     - name: send an email notification
+       mail:
+         host: smtp.gmail.com
+         port: 587
+         username: "{{ email_smtp_username }}"
+         password: "{{ email_smtp_password }}"
+         to: jmg99jmg99@gmail.com
+         subject: Email By Ansible
+         body: ' cpu usage  {{stat.stdout}}  memory usage:   {{statmem.stdout}} '
+       when: stat.stdout | int < 50 or statmem.stdout | int < 900
