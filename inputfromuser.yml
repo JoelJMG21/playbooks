@@ -1,6 +1,6 @@
 ---
   - name: Get input from user
-    hosts: 192.168.30.7
+    hosts: all
     vars_prompt:
      - name: Name
        prompt: "May I know your Name?"
