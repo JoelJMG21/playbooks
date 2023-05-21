@@ -1,6 +1,6 @@
 ---
  - name: implementation of block and installing packages
-   hosts: 192.168.119.138
+   hosts: 192.168.30.7
    become: yes
    vars:
            web: httpd
