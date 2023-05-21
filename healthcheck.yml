@@ -1,6 +1,6 @@
  ---
   - name: health check of cpu memory and storage
-    hosts: 192.168.119.138
+    hosts: 192.168.30.7
     vars_files: /home/joel/secure.yml
     tasks:
      - name: healthcheck of cpu
