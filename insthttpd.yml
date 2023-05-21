@@ -1,9 +1,8 @@
 ---
  - name: Installing hhtp in remote node
-   hosts: localhost
+   hosts: all
    tasks:
-           - name: Install httpd
-             ansible.builtin.dnf:
-                     name: httpd
-                     state: present
-             become: yes
+   - name: Install httpd
+     ansible.builtin.dnf:
+       name: httpd
+       state: present
