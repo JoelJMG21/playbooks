@@ -1,6 +1,6 @@
 ---
  - name: Installing hhtp in remote node
-   hosts: 192.168.30.7
+   hosts: localhost
    tasks:
            - name: Install httpd
              ansible.builtin.dnf:
