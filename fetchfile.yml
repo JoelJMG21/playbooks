@@ -1,6 +1,6 @@
 ---
  - name: to fetch file from managed node
-   hosts: 192.168.119.138
+   hosts: 192.168.30.7
    become: yes
    tasks:
            - name : getting text file from managed node
