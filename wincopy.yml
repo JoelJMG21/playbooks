@@ -1,0 +1,8 @@
+---
+- hosts: windows
+  tasks: 
+  - name: copy file from linux to windows
+    win_copy:
+        src: /root/demofile
+        dest:  C:\Users\abina\Downloads\copiedfile
+        

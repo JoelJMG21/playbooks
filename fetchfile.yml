@@ -3,7 +3,7 @@
    hosts: 192.168.30.7
    become: yes
    tasks:
-           - name : getting text file from managed node
-             ansible.builtin.fetch:
-                   src: var/log/secure
-                   dest: secure_backup
+    - name : getting text file from managed node
+      ansible.builtin.fetch:
+        src: var/log/secure
+        dest: secure_backup

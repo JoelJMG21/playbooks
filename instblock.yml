@@ -3,25 +3,22 @@
    hosts: 192.168.30.7
    become: yes
    vars:
-           web: httpd
-           fire: firewalld
-
-   tasks:
-           - name: implementing block
-             block:
-                     - name: trying to install httpd
-                       ansible.builtin.dnf:
-                               name: "{{web}}"
-                               state: latest
-
-             rescue:
-                     - name: installing firewalld
-                       ansible.builtin.dnf:
-                                name: "{{fire}}"
-                                state: latest
-
-             always:
-                     - name: enabiling firewalld
-                       ansible.builtin.service:
-                                name: "{{fire}}"
-                                state: started
+    web: httpd
+    fire: firewalld
+    tasks:
+     - name: implementing block
+       block:
+        - name: trying to install httpd
+          ansible.builtin.dnf:
+            name: "{{web}}"
+            state: latest
+       rescue:
+        - name: installing firewalld
+          ansible.builtin.dnf:
+             name: "{{fire}}"
+             state: latest
+       always:
+        - name: enabiling firewalld
+          ansible.builtin.service:
+             name: "{{fire}}"
+             state: started

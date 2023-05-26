@@ -1,0 +1,10 @@
+[windows]
+192.168.13.1
+
+[windows:vars]
+ansible_user=Lenovo
+ansible_password=Prodev#321
+ansible_port=5985
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+

@@ -3,22 +3,22 @@
    hosts: 192.168.30.7
    become: yes
    vars:
-           http: httpd
-           fire: firewalld
-           pyth: python3
+     http: httpd
+     fire: firewalld
+     pyth: python3
 
    tasks:
-           - name: installing httpd
-             ansible.builtin.dnf:
-                     name: "{{http}}"
-                     state: present
+    - name: installing httpd
+      ansible.builtin.dnf:
+        name: "{{http}}"
+        state: present
 
-           - name: installing firewalld
-             ansible.builtin.dnf:
-                     name: "{{fire}}"
-                     state: present
+    - name: installing firewalld
+      ansible.builtin.dnf:
+        name: "{{fire}}"
+        state: present
 
-           - name: installing python
-             ansible.builtin.dnf:
-                     name: "{{pyth}}"
-                     state: latest
+    - name: installing python
+      ansible.builtin.dnf:
+         name: "{{pyth}}"
+         state: latest

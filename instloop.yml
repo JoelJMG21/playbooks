@@ -3,12 +3,12 @@
     hosts: 192.168.30.7
     become: yes
     vars:
-        packages:
-                  - httpd
-                  - firewalld
+       packages:
+         - httpd
+         - firewalld
     tasks:
-          - name: installing packages
-            ansible.builtin.dnf:
-                    name: "{{item}}"
-                    state: present
-            loop: "{{packages}}"
+     - name: installing packages
+       ansible.builtin.dnf:
+           name: "{{item}}"
+           state: present
+       loop: "{{packages}}"
